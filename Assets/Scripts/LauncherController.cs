@@ -22,7 +22,7 @@ public class LauncherController : MonoBehaviour {
 	void rotateLauncher(){
 		float input = Input.GetAxis ("Vertical");
 		float angleZ = tf.eulerAngles.z;
-
+	
 		if (input > 0) {
 			rb.AddTorque (10);
 		} else if (input < 0) {
@@ -30,10 +30,18 @@ public class LauncherController : MonoBehaviour {
 		}
 
 
-		if (angleZ > 45 && angleZ < 180) {
-			angleZ = 45;
-		} else if (angleZ < 315 && angleZ < 180 ) {
-			angleZ = -15;
+		float rotationZ = transform.localEulerAngles.z;
+
+		if(rotationZ > 180 && rotationZ > 315)
+		{
+			rb.MoveRotation (315);
+			rb.angularVelocity = 0;
 		}
+		else if(rotationZ > 45)
+		{
+			rb.MoveRotation (45);
+			rb.angularVelocity = 0;
+		}
+
 	}
 }

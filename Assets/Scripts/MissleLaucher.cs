@@ -13,7 +13,6 @@ public class MissleLaucher : MonoBehaviour {
 	bool changeOK;
 	bool fireOneOK;
 	GameObject obj;
-	Rigidbody2D rb;
 	Transform tf;
 
 	// Use this for initialization
@@ -22,9 +21,7 @@ public class MissleLaucher : MonoBehaviour {
 		missle = missleTypes [index];
 		length = missleTypes.Length;
 		fireOneOK = true;
-		rb = gameObject.GetComponent<Rigidbody2D> ();
 		tf = gameObject.GetComponent<Transform> ();
-		rb.centerOfMass = new Vector2 (-1, 0);
 	}
 	
 	// Update is called once per frame
