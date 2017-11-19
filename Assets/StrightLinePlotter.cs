@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StrightLinePlotter : MonoBehaviour {
+public class StraightLinePlotter : MonoBehaviour {
 
 	public LineRenderer line;
 	private Vector2 newPoint;

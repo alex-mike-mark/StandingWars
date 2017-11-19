@@ -7,6 +7,7 @@ using UnityEngine;
 public class MissleLaucher : MonoBehaviour {
 	public Transform[] missleTypes;
 	Transform missle;
+	Transform tf;
 
 	int index;
 	int length;
@@ -27,7 +28,7 @@ public class MissleLaucher : MonoBehaviour {
 		changeMissle ();
 		if (Input.GetAxis("Fire1")!=0 && fireOneOK) {
 			fireOneOK = false;
-			Instantiate(missle, tf.position+tf.forward, Quaternion.identity);
+			Instantiate(missle, tf.position, Quaternion.identity);
 		}
 		if (Input.GetAxis("Fire1")==0){
 			fireOneOK=true;

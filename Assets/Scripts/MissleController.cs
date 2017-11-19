@@ -14,32 +14,25 @@ public class MissleController : MonoBehaviour {
 		{
 			transform.position = Vector3.Lerp(this.transform.position, trajectory.GetPosition (0), 5f);
 		}*/
-		StartCoroutine (followLine ());
+		//StartCoroutine (followLine ());
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		
+		gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(10,0));
 	}
-
-
-	IEnumerator followLine() 
+		
+	/*IEnumerator followLine() 
 	{
 		int i = 0;
-
-
-
 		while (gameObject.activeInHierarchy) 
 		{
-			
-
 			//this.gameObject.transform.position = trajectory.GetPosition (i);
 			this.gameObject.transform.position = Vector3.Lerp(this.gameObject.transform.position, trajectory.GetPosition (i), 5f);
 			i++;
 			yield return new WaitForSeconds(0.08f);
 		}
-
 		Destroy (trajectory);
-	}
+	}*/
 }
