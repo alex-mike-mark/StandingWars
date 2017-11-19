@@ -12,8 +12,6 @@ public class MissleLaucher : MonoBehaviour {
 	int length;
 	bool changeOK;
 	bool fireOneOK;
-	GameObject obj;
-	Transform tf;
 
 	// Use this for initialization
 	void Start () {

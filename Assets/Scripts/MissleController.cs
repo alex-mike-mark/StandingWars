@@ -3,16 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MissleController : MonoBehaviour {
-	Rigidbody2D rb2;
+
+	public LineRenderer trajectory;
+	public GameObject shooter;
 
 	// Use this for initialization
-	void Start () {
-		rb2 = gameObject.GetComponent<Rigidbody2D> ();
-		rb2.AddForce (100*(new Vector2 (1, 0)));
+	void Start () 
+	{
+	/*	if(this.transform.position != trajectory.GetPosition (0))
+		{
+			transform.position = Vector3.Lerp(this.transform.position, trajectory.GetPosition (0), 5f);
+		}*/
+		StartCoroutine (followLine ());
+	}
+	
+	// Update is called once per frame
+	void Update () 
+	{
+		
 	}
 
-	// Update is called once per frame
-	void Update () {
-		rb2.AddForce (new Vector2 (25,0));
+
+	IEnumerator followLine() 
+	{
+		int i = 0;
+
+
+
+		while (gameObject.activeInHierarchy) 
+		{
+			
+
+			//this.gameObject.transform.position = trajectory.GetPosition (i);
+			this.gameObject.transform.position = Vector3.Lerp(this.gameObject.transform.position, trajectory.GetPosition (i), 5f);
+			i++;
+			yield return new WaitForSeconds(0.08f);
+		}
+
+		Destroy (trajectory);
 	}
 }
