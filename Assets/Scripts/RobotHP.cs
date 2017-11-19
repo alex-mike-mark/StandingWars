@@ -29,15 +29,6 @@ public class RobotHP : MonoBehaviour {
             
             count = 0;
         }
-        if (Input.GetAxis("Fire1") != 0)
-        {
-            if (!isDead) {
-                TakeDamage();
-                Debug.Log(hp);
-            }
-            
-            
-        }
     }
 
     void TakeDamage()
