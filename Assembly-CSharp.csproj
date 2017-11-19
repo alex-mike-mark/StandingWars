@@ -51,7 +51,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\destroyMIssles.cs" />
+     <Compile Include="Assets\Scripts\MissleController.cs" />
      <Compile Include="Assets\Scripts\MissleLaucher.cs" />
+     <Compile Include="Assets\Scripts\RobotHP.cs" />
+     <Compile Include="Assets\StrightLinePlotter.cs" />
  <Reference Include="UnityEngine.CoreModule">
  <HintPath>/opt/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
  </Reference>
