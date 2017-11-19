@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Player1
   - Player2
+  - Missle
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Foreground
   - 
   - 
   - 
@@ -40,6 +41,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Foreground
+    uniqueID: 461083103
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

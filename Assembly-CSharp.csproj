@@ -46,9 +46,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\GameManager.cs" />
      <Compile Include="Assets\HealthScript.cs" />
+     <Compile Include="Assets\HealthScriptP2.cs" />
      <Compile Include="Assets\Scripts\MissleController.cs" />
+     <Compile Include="Assets\Scripts\MissleControllerP2.cs" />
      <Compile Include="Assets\Scripts\MissleLaucher.cs" />
+     <Compile Include="Assets\Scripts\MissleLaucherP2.cs" />
      <Compile Include="Assets\Scripts\StrightLinePlotter.cs" />
      <Compile Include="Assets\Scripts\destroyMIssles.cs" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />

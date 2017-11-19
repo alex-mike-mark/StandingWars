@@ -11,6 +11,7 @@ public class MissleController : MonoBehaviour {
 	private Rigidbody2D rb;
 	private bool goingUp;
 	float arc = 10f;
+	private Vector3 startPoint;
 
 	// Use this for initialization
 	void Start () 
@@ -18,7 +19,12 @@ public class MissleController : MonoBehaviour {
 		//Quaternion rotate = shooter.transform.rotation;
 		//rotate.z = -29.7f;
 
+		startPoint = this.transform.position;
+		startPoint.x = -4.65f;
+
 		this.transform.Rotate (new Vector3(0f,0f,-29.7f));
+
+		this.transform.position = startPoint;
 		StartCoroutine (straightLine());
 		//this.transform.position = shooter.transform.position;
 		//rb = this.gameObject.GetComponent <Rigidbody2D>();
@@ -60,7 +66,7 @@ public class MissleController : MonoBehaviour {
 	IEnumerator straightLine() 
 	{
 		
-		Vector3 point = shooter.transform.position;
+		Vector3 point = startPoint;
 
 		while (gameObject.activeInHierarchy) 
 		{

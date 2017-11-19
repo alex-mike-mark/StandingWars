@@ -12,11 +12,14 @@ public class HealthScript : MonoBehaviour {
 	public ParticleSystem explosion;
 	public SpriteRenderer sprite;
 	public Sprite death;
+	private Vector3 renderPoint;
 
 	// Use this for initialization
 	void Start () 
 	{
 		health = 100;
+		renderPoint = this.transform.position;
+		renderPoint.z = -3f;
 	}
 	
 	// Update is called once per frame
@@ -32,10 +35,16 @@ public class HealthScript : MonoBehaviour {
 
 		if(health < 0.5f)
 		{
-			explosion.gameObject.transform.position = this.transform.position;
-			explosion.Play ();
+			explosion.gameObject.transform.position = renderPoint;
+			if (!explosion.isPlaying) 
+			{
+				explosion.Play ();
+			}
 			sprite.sprite = death;
-			Debug.Log ("GameOver - Player 1 Wins");
+			healthBar.gameObject.SetActive (false);
+			iTween.ShakePosition (this.gameObject, this.transform.right * 0.05f, 10f);
+			this.GetComponent <MissleLaucher>().enabled = false;
+			Debug.Log ("GameOver - Player 2 Wins");
 		}	
 	}
 

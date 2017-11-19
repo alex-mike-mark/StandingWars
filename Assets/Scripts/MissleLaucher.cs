@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class MissleLaucher : MonoBehaviour {
 	public Transform missle;
+	public GameObject shooter;
 	private Vector3 firePoint;
 
 	bool fireOneOK;
@@ -13,23 +14,25 @@ public class MissleLaucher : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		firePoint = gameObject.GetComponent<Transform> ().position;
+		//firePoint = shooter.transform.position;
+		//firePoint.y -= 1f;
+		//firePoint.x = -4.54f;
 		fireOneOK = true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		firePoint = gameObject.GetComponent<Transform> ().position;
-		firePoint.y -= 1f;
-		firePoint.x -= 5;
+			firePoint = shooter.transform.position;
+			firePoint.x = -4.54f;
 
-		if (Input.GetAxis("Fire1")!=0 && fireOneOK) {
-			fireOneOK = false;
-			Instantiate(missle, firePoint, Quaternion.identity);
+			if (Input.GetKeyDown("`") && fireOneOK) {
+				fireOneOK = false;
+				Instantiate (missle, firePoint, Quaternion.identity);
+			}
+			if (Input.GetKeyDown("`")) {
+				fireOneOK = true;
+			}
 		}
-		if (Input.GetAxis("Fire1")==0){
-			fireOneOK=true;
-		}
-	}
+			
 }

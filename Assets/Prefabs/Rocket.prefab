@@ -23,9 +23,10 @@ GameObject:
   - component: {fileID: 50350423099533220}
   - component: {fileID: 60929164873407192}
   - component: {fileID: 114097462752811466}
+  - component: {fileID: 114618649127979000}
   m_Layer: 0
   m_Name: Rocket
-  m_TagString: Untagged
+  m_TagString: Missle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1294264239543776}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.38, y: -1.97, z: 0}
+  m_LocalPosition: {x: -4.54, y: -1.97, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -54,7 +55,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 1
+  m_Mass: 0.257675
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0.0001
@@ -123,6 +124,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shooter: {fileID: 1969995852616402, guid: d292db0f3c65f4878a848a8361f24285, type: 2}
   enemy: {fileID: 1181793100092670, guid: 6ceb6589ce3a34573941066f85ff5fc2, type: 2}
+--- !u!114 &114618649127979000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1294264239543776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95f9be52fe4f143d98b3110d7ebd9d83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  P1: {fileID: 0}
+  P2: {fileID: 0}
 --- !u!212 &212510141386489754
 SpriteRenderer:
   m_ObjectHideFlags: 1
