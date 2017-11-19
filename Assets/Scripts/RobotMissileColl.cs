@@ -5,11 +5,13 @@ using UnityEngine;
 public class RobotMissileColl : MonoBehaviour {
 
 
-    void OnCollisionEnter2D(Collision2D coll)
+	void OnTriggerEnter2D(Collider2D coll)
     {
-        coll.gameObject.SetActive(false);
-        Destroy(coll.gameObject);
-        this.SendMessage("TakeDamage", 10);
+		if (coll.gameObject.CompareTag ("Player2")) {
+			Debug.Log ("BOOM1");
+			//coll.gameObject.SetActive (false);
+			Destroy (gameObject);
+			this.SendMessage ("TakeDamage", 10);
+		}
     }
-
 }

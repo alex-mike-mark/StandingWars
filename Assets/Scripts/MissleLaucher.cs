@@ -5,53 +5,32 @@ using UnityEngine;
 //transform.parent.gameObject gets the parent.
 
 public class MissleLaucher : MonoBehaviour {
-	public Transform[] missleTypes;
-	Transform missle;
-	Transform tf;
+	public Transform missle;
+	public GameObject shooter;
+	private Vector3 firePoint;
 
-	int index;
-	int length;
-	bool changeOK;
 	bool fireOneOK;
 
 	// Use this for initialization
 	void Start () {
-		index = 0;
-		missle = missleTypes [index];
-		length = missleTypes.Length;
+
+		firePoint = gameObject.GetComponent<Transform> ().position;
 		fireOneOK = true;
-		tf = gameObject.GetComponent<Transform> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		changeMissle ();
-		if (Input.GetAxis("Fire1")!=0 && fireOneOK) {
-			fireOneOK = false;
-			Instantiate(missle, tf.position, Quaternion.identity);
-		}
-		if (Input.GetAxis("Fire1")==0){
-			fireOneOK=true;
-		}
-	}
 
-	void changeMissle(){
-		float input = Input.GetAxis ("Horizontal");
-		if (input > 0 && changeOK) {//raise index
-			index++;
-			if (length <= index) {
-				index = 0;					
+			firePoint = shooter.transform.position;
+			firePoint.y -= 1f;
+			firePoint.x -= 5;
+			if (Input.GetKeyDown("`") && fireOneOK) {
+				fireOneOK = false;
+				Instantiate (missle, firePoint, Quaternion.identity);
 			}
-			changeOK = false;
-		} else if (input < 0 && changeOK) {//lower index
-			index--;
-			if (index < 0) {
-				index = length - 1;
+			if (Input.GetKeyDown("`")) {
+				fireOneOK = true;
 			}
-			changeOK = false;
-		} else if (input == 0) {
-			changeOK = true;
 		}
-		missle = missleTypes [index];
-	}	
+			
 }

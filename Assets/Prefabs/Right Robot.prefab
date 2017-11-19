@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114034695278799134}
   m_Layer: 0
   m_Name: Right Robot
-  m_TagString: Untagged
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,7 +34,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1969995852616402}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: -0.7071068}
   m_LocalPosition: {x: -7, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missle: {fileID: 4955923391587522, guid: 016f30d59ae0943fca8024ffd1606580, type: 2}
+  shooter: {fileID: 1969995852616402}
 --- !u!212 &212491486373393932
 SpriteRenderer:
   m_ObjectHideFlags: 1
