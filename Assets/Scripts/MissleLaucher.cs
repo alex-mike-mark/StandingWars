@@ -12,6 +12,9 @@ public class MissleLaucher : MonoBehaviour {
 	int length;
 	bool changeOK;
 	bool fireOneOK;
+	GameObject obj;
+	Rigidbody2D rb;
+	Transform tf;
 
 	// Use this for initialization
 	void Start () {
@@ -19,14 +22,19 @@ public class MissleLaucher : MonoBehaviour {
 		missle = missleTypes [index];
 		length = missleTypes.Length;
 		fireOneOK = true;
+		rb = gameObject.GetComponent<Rigidbody2D> ();
+		tf = gameObject.GetComponent<Transform> ();
+		rb.centerOfMass = new Vector2 (-1, 0);
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		changeMissle ();
+		rotateLauncher ();
 		if (Input.GetAxis("Fire1")!=0 && fireOneOK) {
 			fireOneOK = false;
-			Instantiate(missle, gameObject.GetComponent<Transform>().position, Quaternion.identity);
+			Instantiate(missle, tf.position+tf.forward, Quaternion.identity);
 		}
 		if (Input.GetAxis("Fire1")==0){
 			fireOneOK=true;
@@ -52,4 +60,23 @@ public class MissleLaucher : MonoBehaviour {
 		}
 		missle = missleTypes [index];
 	}	
+
+	void rotateLauncher(){
+		float input = Input.GetAxis ("Vertical");
+		float angleZ = tf.eulerAngles.z;
+
+		if (input > 0) {
+			rb.AddTorque (10);
+		} else if (input < 0) {
+			rb.AddTorque (-10);
+		}
+
+
+		if (angleZ > 45 && angleZ < 180) {
+			angleZ = 45;
+		} else if (angleZ < 315 && angleZ < 180 ) {
+			angleZ = -15;
+		}
+
+	}
 }
