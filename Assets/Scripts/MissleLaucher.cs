@@ -12,6 +12,8 @@ public class MissleLaucher : MonoBehaviour {
 	int length;
 	bool changeOK;
 	bool fireOneOK;
+	GameObject obj;
+	Transform tf;
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +21,7 @@ public class MissleLaucher : MonoBehaviour {
 		missle = missleTypes [index];
 		length = missleTypes.Length;
 		fireOneOK = true;
+		tf = gameObject.GetComponent<Transform> ();
 	}
 	
 	// Update is called once per frame
@@ -26,7 +29,7 @@ public class MissleLaucher : MonoBehaviour {
 		changeMissle ();
 		if (Input.GetAxis("Fire1")!=0 && fireOneOK) {
 			fireOneOK = false;
-			Instantiate(missle, gameObject.GetComponent<Transform>().position, Quaternion.identity);
+			Instantiate(missle, tf.position+tf.forward, Quaternion.identity);
 		}
 		if (Input.GetAxis("Fire1")==0){
 			fireOneOK=true;
