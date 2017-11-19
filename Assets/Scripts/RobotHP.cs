@@ -49,6 +49,15 @@ public class RobotHP : MonoBehaviour {
         }
     }
 
+    void TakeDamage(int damage)
+    {
+        hp -= damage;
+        if (hp <= 0)
+        {
+            isDead = true;
+        }
+    }
+
     public bool IsDead()
     {
         return isDead;
